@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlace Total - Catálogo Corporativo Interactivo</title>
+    <!-- Tailwind CSS para diseño rápido y moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración personalizada de Tailwind para colores institucionales -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        enlaceBlue: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            950: '#0f172a'
+                        },
+                        enlaceRed: '#ef4444',
+                        enlaceGold: '#eab308'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Ocultar barra de desplazamiento por estética */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Estilos de Impresión Optimizados para exportación de PDF limpio */
+        @media print {
+            body {
+                background: white !important;
+                color: #0f172a !important;
+                font-size: 12pt !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-page {
+                page-break-after: always !important;
+                height: 100vh !important;
+                max-height: 100vh !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                box-shadow: none !important;
+                border: none !important;
+                margin: 0 !important;
+                padding: 1.5cm !important;
+                background: white !important;
+                overflow: hidden !important;
+            }
+            .slide-container {
+                height: auto !important;
+                display: block !important;
+            }
+            .illustration-box {
+                max-height: 250px !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Menú Superior No-Imprimible -->
+    <header class="no-print bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50 px-6 py-3 flex justify-between items-center shadow-sm">
+        <div class="flex items-center gap-3">
+            <!-- Icono Isotipo SVG Enlace Total -->
+            <div class="flex items-end gap-1 h-8">
+                <div class="w-2.5 h-8 bg-enlaceRed rounded-sm"></div>
+                <div class="w-2.5 h-6 bg-enlaceBlue-700 rounded-sm"></div>
+                <div class="w-2.5 h-4 bg-enlaceGold rounded-sm"></div>
+            </div>
+            <div>
+                <span class="font-extrabold text-lg tracking-tight text-slate-900">enLACE TOTAL</span>
+                <span class="text-xs block text-slate-500 font-medium -mt-1">Servicios Publicitarios</span>
+            </div>
+        </div>
+
+        <!-- Navegación Interactiva de 9 Páginas -->
+        <nav class="hidden lg:flex items-center gap-1 text-xs font-semibold text-slate-600">
+            <button onclick="goToSlide(1)" class="nav-btn px-2.5 py-1.5 rounded-lg hover:bg-slate-100 hover:text-enlaceBlue-700 transition" data-slide="1">Inicio</button>
+            <button onclick="goToSlide(2)" class="nav-btn px-2.5 py-1.5 rounded-lg hover:bg-slate-100 hover:text-enlaceBlue-700 transition" data-slide="2">Nosotros</button>
+            <button onclick="goToSlide(3)" class="nav-btn px-2.5 py-1.5 rounded-lg hover:bg-slate-100 hover:text-enlaceBlue-700 transition" data-slide="3">Exteriores</button>
+            <button onclick="goToSlide(4)" class="nav-btn px-2.5 py-1.5 rounded-lg hover:bg-slate-100 hover:text-enlaceBlue-700 transition" data-slide="4">Puentes</button>
+            <button onclick="goToSlide(5)" class="nav-btn px-2.5 py-1.5 rounded-lg hover:bg-slate-100 hover:text-enlaceBlue-700 transition" data-slide="5">Flotillas</button>
+            <button onclick="goToSlide(6)" class="nav-btn px-2.5 py-1.5 rounded-lg hover:bg-slate-100 hover:text-enlaceBlue-700 transition" data-slide="6">Impresos</button>
+            <button onclick="goToSlide(7)" class="nav-btn px-2.5 py-1.5 rounded-lg hover:bg-slate-100 hover:text-enlaceBlue-700 transition" data-slide="7">Uniformes</button>
+            <button onclick="goToSlide(8)" class="nav-btn px-2.5 py-1.5 rounded-lg hover:bg-slate-100 hover:text-enlaceBlue-700 transition" data-slide="8">Eventos</button>
+            <button onclick="goToSlide(9)" class="nav-btn px-2.5 py-1.5 rounded-lg hover:bg-slate-100 hover:text-enlaceBlue-700 transition" data-slide="9">Contacto</button>
+        </nav>
+
+        <!-- Controles de Acción -->
+        <div class="flex items-center gap-3">
+            <button onclick="showPDFGuide()" class="flex items-center gap-2 bg-enlaceBlue-600 hover:bg-enlaceBlue-700 text-white font-bold text-sm px-4 py-2 rounded-xl transition shadow-md shadow-enlaceBlue-600/10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Exportar PDF
+            </button>
+        </div>
+    </header>
+
+    <!-- Contenedor de Diapositivas (Diseño Horizontal Orientado a Proyección) -->
+    <main class="flex-1 flex flex-col justify-center max-w-7xl w-full mx-auto p-4 lg:p-8 slide-container">
+        
+        <!-- ================= DIAPOSITIVA 1: PORTADA ================= -->
+        <section id="slide-1" class="print-page bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden transition-all duration-500 flex flex-col lg:flex-row min-h-[550px] relative">
+            <!-- Fondo de burbujas decorativas inspiradas en el brochure -->
+            <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
+                <div class="absolute -top-10 -left-10 w-96 h-96 bg-enlaceBlue-100/40 rounded-full blur-2xl"></div>
+                <div class="absolute bottom-10 right-10 w-80 h-80 bg-enlaceBlue-200/30 rounded-full blur-3xl"></div>
+                <div class="absolute top-1/3 right-1/4 w-20 h-20 bg-enlaceBlue-300/20 rounded-full blur-xl"></div>
+            </div>
+
+            <!-- Columna Texto -->
+            <div class="flex-1 p-8 lg:p-16 flex flex-col justify-between z-10">
+                <div class="flex items-center gap-4">
+                    <div class="flex items-end gap-1.5 h-12">
+                        <div class="w-3.5 h-12 bg-enlaceRed rounded-md"></div>
+                        <div class="w-3.5 h-9 bg-enlaceBlue-700 rounded-md"></div>
+                        <div class="w-3.5 h-6 bg-enlaceGold rounded-md"></div>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight leading-none">enLACE TOTAL</h1>
+                        <p class="text-sm font-bold tracking-widest text-slate-500 uppercase">Y Servicios Publicitarios</p>
+                    </div>
+                </div>
+
+                <div class="my-auto py-12">
+                    <span class="inline-block bg-enlaceBlue-100 text-enlaceBlue-800 font-extrabold text-xs tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">Portafolio Corporativo</span>
+                    <h2 class="text-4xl lg:text-5xl font-black text-slate-900 leading-tight mb-4">
+                        Soluciones <span class="text-enlaceBlue-600">Integrales</span> Para Tus Necesidades de Comunicación
+                    </h2>
+                    <p class="text-lg text-slate-600 max-w-xl">
+                        Más de 20 años en el mercado posicionando marcas a través de publicidad exterior, medios digitales, impresos y organización de eventos estratégicos.
+                    </p>
+                </div>
+
+                <div class="border-t border-slate-100 pt-6 flex justify-between items-center">
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Presentación Ejecutiva • Marzo 2026</p>
+                    <span class="text-xs font-bold text-enlaceBlue-600 uppercase tracking-widest no-print">Clic en Siguiente →</span>
+                </div>
+            </div>
+
+            <!-- Columna Ilustración / Visual -->
+            <div class="flex-1 bg-gradient-to-br from-enlaceBlue-900 to-enlaceBlue-950 p-12 flex flex-col justify-center items-center relative overflow-hidden text-white">
+                <div class="absolute inset-0 opacity-10">
+                    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1" />
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)" />
+                    </svg>
+                </div>
+                <div class="w-64 h-64 rounded-full bg-gradient-to-tr from-enlaceBlue-600 to-cyan-400 absolute -top-12 -right-12 opacity-80 blur-lg"></div>
+                <div class="w-32 h-32 rounded-full bg-enlaceBlue-800 absolute bottom-12 -left-12 opacity-60"></div>
+                <div class="w-16 h-16 rounded-full bg-enlaceRed/30 absolute top-1/2 left-12"></div>
+                
+                <div class="text-center z-10 max-w-sm">
+                    <p class="text-enlaceGold font-extrabold tracking-widest uppercase text-xs mb-3">Infraestructura Propia</p>
+                    <h3 class="text-3xl font-bold leading-snug">Estrategias Publicitarias de Alto Impacto</h3>
+                    <p class="text-slate-300 text-sm mt-4">Soluciones de comunicación diseñadas para conectar marcas con audiencias en toda la Ciudad de México y principales ciudades del país.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DIAPOSITIVA 2: ¿QUIÉNES SOMOS? ================= -->
+        <section id="slide-2" class="print-page bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden transition-all duration-500 hidden flex-col lg:flex-row min-h-[550px]">
+            <div class="flex-1 p-8 lg:p-12 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-bold text-enlaceBlue-600 uppercase tracking-widest block mb-1">Trayectoria de Excelencia</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">¿Quiénes Somos?</h2>
+                </div>
+
+                <div class="my-auto space-y-6">
+                    <p class="text-lg text-slate-600 leading-relaxed">
+                        Con <strong class="text-slate-900 font-semibold">Enlace Total</strong> cuentas con el respaldo de una agencia de publicidad, comunicación e imagen con <strong class="text-enlaceBlue-600 font-bold">más de 20 años en el mercado</strong>.
+                    </p>
+                    <p class="text-slate-600">
+                        Nuestra visión se centra en brindar servicios integrales de calidad para posicionar estratégicamente tu marca, producto o negocio, contando con la infraestructura de vanguardia necesaria para lograrlo de manera rápida y efectiva.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                            <span class="block text-2xl font-black text-enlaceBlue-600">20+ Años</span>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Experiencia Comprobada</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                            <span class="block text-2xl font-black text-enlaceBlue-600">100%</span>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Atención Personalizada</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Enlace Total • Portafolio Corporativo</p>
+            </div>
+
+            <div class="flex-1 bg-slate-900 p-8 lg:p-12 text-white flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-tr from-enlaceBlue-950 to-slate-900 z-0"></div>
+                <div class="z-10">
+                    <span class="text-xs font-bold text-enlaceGold uppercase tracking-widest block mb-2">Especialización Integral</span>
+                    <h3 class="text-2xl font-bold">Capacidad Multicanal</h3>
+                    <p class="text-slate-300 text-sm mt-3">Unificamos todas las áreas de la comunicación para entregar resultados consistentes:</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 my-auto z-10">
+                    <div class="flex items-start gap-3">
+                        <span class="p-1.5 bg-enlaceBlue-600/30 rounded-lg text-enlaceBlue-400 font-bold text-xs mt-0.5">✔</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-100">Medios Tradicionales</h4>
+                            <p class="text-xs text-slate-400">Espectaculares, bardas y puentes.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="p-1.5 bg-enlaceBlue-600/30 rounded-lg text-enlaceBlue-400 font-bold text-xs mt-0.5">✔</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-100">Soluciones Digitales</h4>
+                            <p class="text-xs text-slate-400">Web, Redes Sociales e Interactivos.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="p-1.5 bg-enlaceBlue-600/30 rounded-lg text-enlaceBlue-400 font-bold text-xs mt-0.5">✔</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-100">Diseño & Animación</h4>
+                            <p class="text-xs text-slate-400">Modelado 2D, 3D e ilustración.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="p-1.5 bg-enlaceBlue-600/30 rounded-lg text-enlaceBlue-400 font-bold text-xs mt-0.5">✔</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-100">Logística & Eventos</h4>
+                            <p class="text-xs text-slate-400">Coordinación masiva e institucional.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-white/10 pt-4 z-10 flex justify-between items-center">
+                    <span class="text-xs text-slate-400">Infraestructura propia de primer nivel</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DIAPOSITIVA 3: PUBLICIDAD EXTERIOR (BARDAS Y CARTELERAS) ================= -->
+        <section id="slide-3" class="print-page bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden transition-all duration-500 hidden flex-col lg:flex-row min-h-[550px]">
+            <div class="flex-1 p-8 lg:p-12 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-bold text-enlaceBlue-600 uppercase tracking-widest block mb-1">Medios Exteriores Clásicos</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Publicidad Exterior y Difusión</h2>
+                </div>
+
+                <div class="my-auto space-y-6">
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 flex items-center gap-2 mb-2">
+                            <span class="w-2 h-2 rounded-full bg-enlaceRed"></span>
+                            Rotulación de Bardas y Campañas Sociales
+                        </h3>
+                        <p class="text-slate-600 text-sm">
+                            Somos especialistas en la rotulación de bardas y pinta de muros estratégicos para programas sociales o campañas institucionales. Nuestro alcance garantiza presencia sólida en avenidas de alto flujo.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 flex items-center gap-2 mb-2">
+                            <span class="w-2 h-2 rounded-full bg-enlaceBlue-600"></span>
+                            Carteleras y Espectaculares
+                        </h3>
+                        <p class="text-slate-600 text-sm">
+                            Colocación de lonas en carteleras de gran formato y espectaculares diseñados para maximizar la visibilidad y lograr un rápido posicionamiento mental de marca en las 16 alcaldías de la CDMX.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Enlace Total • Publicidad de Alto Impacto</p>
+            </div>
+
+            <div class="flex-1 bg-slate-50 p-6 lg:p-8 flex flex-col gap-6 justify-center items-center border-l border-slate-100 overflow-y-auto">
+                <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl">
+                    
+                    <div id="barda-img-container" class="bg-white rounded-2xl p-3 shadow-md border border-slate-200/60 flex flex-col relative min-h-[180px]">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 block">1. Rotulación de Bardas</span>
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400">
+                                <svg class="animate-spin h-6 w-6 text-enlaceBlue-600 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                            <div class="fallback-graphic hidden absolute inset-0 bg-indigo-900 flex flex-col justify-between p-3 text-white">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[8px] bg-enlaceRed px-1.5 py-0.5 rounded text-white font-bold">MUJER</span>
+                                    <span class="text-[8px] text-slate-300">Pinta de Barda</span>
+                                </div>
+                                <div class="my-1">
+                                    <p class="text-[11px] font-black leading-tight uppercase text-yellow-300">PUNTO VIOLETA</p>
+                                </div>
+                            </div>
+                            <img src="" alt="Rotulación de Bardas" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                    <div id="espectacular-img-container" class="bg-white rounded-2xl p-3 shadow-md border border-slate-200/60 flex flex-col relative min-h-[180px]">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 block">2. Cartelera Espectacular</span>
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400">
+                                <svg class="animate-spin h-6 w-6 text-enlaceBlue-600 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                            <div class="fallback-graphic hidden absolute inset-0 bg-slate-900 flex flex-col justify-between p-3 text-white">
+                                <div class="my-1">
+                                    <p class="text-[12px] font-black tracking-wide text-enlaceGold uppercase">TEQUILA 1800</p>
+                                </div>
+                            </div>
+                            <img src="" alt="Cartelera Espectacular" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                    <div id="pemex-img-container" class="bg-white rounded-2xl p-3 shadow-md border border-slate-200/60 flex flex-col relative min-h-[180px]">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 block">3. Pantalla en Gasolinera</span>
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400">
+                                <svg class="animate-spin h-6 w-6 text-enlaceBlue-600 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                            <div class="fallback-graphic hidden absolute inset-0 bg-emerald-950 flex flex-col justify-between p-3 text-white">
+                                <div class="my-1">
+                                    <p class="text-[11px] font-black leading-tight uppercase text-yellow-300">PEMEX DIGITAL</p>
+                                </div>
+                            </div>
+                            <img src="" alt="Pantalla Digital Pemex" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DIAPOSITIVA 4: LONAS EN PUENTES PEATONALES ================= -->
+        <section id="slide-4" class="print-page bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden transition-all duration-500 hidden flex-col lg:flex-row min-h-[550px]">
+            <div class="flex-1 p-8 lg:p-12 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-bold text-enlaceBlue-600 uppercase tracking-widest block mb-1">Impacto Urbano Colectivo</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Lonas en Puentes Peatonales</h2>
+                </div>
+
+                <div class="my-auto space-y-6">
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 flex items-center gap-2 mb-2">
+                            <span class="w-2 h-2 rounded-full bg-enlaceGold"></span>
+                            Difusión en Puentes Peatonales
+                        </h3>
+                        <p class="text-slate-600 text-sm">
+                            La instalación de lonas de gran formato en puentes peatonales estratégicos sobre las avenidas de mayor flujo vial garantiza un ángulo de visión directo para miles de automovilistas y usuarios de transporte público todos los días.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 flex items-center gap-2 mb-2">
+                            <span class="w-2 h-2 rounded-full bg-enlaceBlue-600"></span>
+                            Administración y Logística Completa
+                        </h3>
+                        <p class="text-slate-600 text-sm">
+                            En Enlace Total nos encargamos de todo el proceso: diseño, impresión de alta gama, colocación segura bajo estrictas normas civiles, mantenimiento constante y remoción al término de la campaña.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Enlace Total • Medios y Soportes Urbanos</p>
+            </div>
+
+            <div class="flex-1 bg-slate-50 p-6 lg:p-8 flex flex-col gap-6 justify-center items-center border-l border-slate-100 overflow-y-auto">
+                <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
+                    
+                    <div id="puente-1-container" class="bg-white rounded-2xl p-3 shadow-md border border-slate-200/60 flex flex-col relative min-h-[180px]">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 block">1. Lona en Puente (Feria de Empleo)</span>
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400">
+                                <svg class="animate-spin h-6 w-6 text-enlaceBlue-600 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                            <div class="fallback-graphic hidden absolute inset-0 bg-blue-900 flex flex-col justify-between p-3 text-white">
+                                <div class="my-1">
+                                    <p class="text-[11px] font-black leading-tight uppercase text-white">FERIA DE EMPLEO CDMX</p>
+                                </div>
+                            </div>
+                            <img src="" alt="Lona en Puente Peatonal original" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                    <div id="puente-2-container" class="bg-white rounded-2xl p-3 shadow-md border border-slate-200/60 flex flex-col relative min-h-[180px]">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 block">2. Lona Informativa Vial</span>
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400">
+                                <svg class="animate-spin h-6 w-6 text-enlaceBlue-600 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                            <div class="fallback-graphic hidden absolute inset-0 bg-emerald-900 flex flex-col justify-between p-3 text-white">
+                                <div class="my-1">
+                                    <p class="text-[11px] font-black leading-tight uppercase text-yellow-300">CAMPAMENTO DE VERANO</p>
+                                </div>
+                            </div>
+                            <img src="" alt="Lona en Puente Peatonal Dos original" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DIAPOSITIVA 5: SOPORTES URBANOS E IMPACTO MÓVIL ================= -->
+        <section id="slide-5" class="print-page bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden transition-all duration-500 hidden flex-col lg:flex-row min-h-[550px]">
+            <div class="flex-1 p-8 lg:p-12 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-bold text-enlaceBlue-600 uppercase tracking-widest block mb-1">Medios Urbanos e Identidad Móvil</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Soportes Urbanos e Identidad Móvil</h2>
+                </div>
+
+                <div class="my-auto space-y-4 text-sm">
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 flex items-center gap-2 mb-1.5">
+                            <span class="w-2 h-2 rounded-full bg-enlaceBlue-600"></span>
+                            Lonas en Puentes Peatonales
+                        </h3>
+                        <p class="text-slate-600">
+                            Instalación en los principales puentes y avenidas de la CDMX, garantizando un ángulo de visión directo para miles de automovilistas diarios.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 flex items-center gap-2 mb-1.5">
+                            <span class="w-2 h-2 rounded-full bg-enlaceRed"></span>
+                            Rotulación Vehicular (Oficial y Comercial)
+                        </h3>
+                        <p class="text-slate-600">
+                            Diseñamos, imprimimos e instalamos rotulaciones completas en flotillas oficiales o comerciales de alta resistencia, convirtiendo vehículos en espectaculares móviles.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Enlace Total • Alcance Urbano</p>
+            </div>
+
+            <div class="flex-1 bg-slate-50 p-6 lg:p-8 flex flex-col gap-6 justify-center items-center border-l border-slate-100 overflow-y-auto">
+                <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl">
+                    
+                    <div id="vehicle-1-container" class="bg-white rounded-2xl p-3 shadow-md border border-slate-200/60 flex flex-col relative min-h-[180px]">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 block">1. Vochito Red Bull</span>
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400">
+                                <svg class="animate-spin h-6 w-6 text-enlaceBlue-600 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                            <div class="fallback-graphic hidden absolute inset-0 bg-slate-900 flex flex-col justify-between p-3 text-white">
+                                <div class="my-1">
+                                    <p class="text-[11px] font-black leading-tight uppercase text-yellow-300">RED BULL</p>
+                                </div>
+                            </div>
+                            <img src="" alt="Vochito Red Bull original" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                    <div id="vehicle-2-container" class="bg-white rounded-2xl p-3 shadow-md border border-slate-200/60 flex flex-col relative min-h-[180px]">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 block">2. Camioneta Huracán</span>
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400">
+                                <svg class="animate-spin h-6 w-6 text-enlaceBlue-600 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                            <div class="fallback-graphic hidden absolute inset-0 bg-slate-850 flex flex-col justify-between p-3 text-white">
+                                <div class="my-1">
+                                    <p class="text-[11px] font-black leading-tight uppercase text-emerald-400">HURAKÁN</p>
+                                </div>
+                            </div>
+                            <img src="" alt="Camioneta Huracán original" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                    <div id="vehicle-3-container" class="bg-white rounded-2xl p-3 shadow-md border border-slate-200/60 flex flex-col relative min-h-[180px]">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 block">3. Sedán Old Mutual</span>
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400">
+                                <svg class="animate-spin h-6 w-6 text-enlaceBlue-600 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                            <div class="fallback-graphic hidden absolute inset-0 bg-slate-700 flex flex-col justify-between p-3 text-white">
+                                <div class="my-1">
+                                    <p class="text-[11px] font-black leading-tight uppercase text-white">OLD MUTUAL</p>
+                                </div>
+                            </div>
+                            <img src="" alt="Sedán Old Mutual original" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DIAPOSITIVA 6: IMPRESOS (PÁGINA 9 BROCHURE) ================= -->
+        <section id="slide-6" class="print-page bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden transition-all duration-500 hidden flex-col lg:flex-row min-h-[550px]">
+            <div class="flex-1 p-8 lg:p-12 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-bold text-enlaceBlue-600 uppercase tracking-widest block mb-1">Producción de Alto Formato</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Impresos Publicitarios</h2>
+                </div>
+
+                <div class="my-auto space-y-6">
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 flex items-center gap-2 mb-2">
+                            <span class="w-2 h-2 rounded-full bg-enlaceRed"></span>
+                            Editorial e Identidad de Marca
+                        </h3>
+                        <p class="text-slate-600 text-sm">
+                            Diseñamos, maquetamos y producimos folletos comerciales, trípticos corporativos, catálogos premium de productos y papelería corporativa institucional con acabados y papeles de primer nivel.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 flex items-center gap-2 mb-2">
+                            <span class="w-2 h-2 rounded-full bg-enlaceGold"></span>
+                            Gran Formato y Banners de Piso
+                        </h3>
+                        <p class="text-slate-600 text-sm">
+                            Soportes rígidos, posters, banners enrollables (Roll-ups), displays promocionales de stand y viniles rotulados de alta escala para cubrir escaparates y aparadores comerciales.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Enlace Total • Impresión de Gran Alcance</p>
+            </div>
+
+            <!-- Galería de 5 imágenes del Brochure (Página 9) -->
+            <div class="flex-1 bg-slate-50 p-4 lg:p-6 flex flex-col gap-4 justify-center border-l border-slate-100 overflow-y-auto">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block -mb-2">Muestras de Impresión del Portafolio</span>
+                
+                <!-- Fila Superior: Folletos y Trípticos -->
+                <div class="grid grid-cols-2 gap-3 w-full">
+                    <div id="impresos-brochure-container" class="bg-white rounded-xl p-2.5 shadow-sm border border-slate-200/60 flex flex-col relative">
+                        <span class="text-[8px] font-bold text-slate-400 uppercase mb-1 block">Brochures & Catálogos</span>
+                        <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100">
+                                <span class="text-[8px] text-slate-400">Cargando...</span>
+                            </div>
+                            <img src="" alt="Folletos apilados" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                    <div id="impresos-trifold-container" class="bg-white rounded-xl p-2.5 shadow-sm border border-slate-200/60 flex flex-col relative">
+                        <span class="text-[8px] font-bold text-slate-400 uppercase mb-1 block">Trípticos Corporativos</span>
+                        <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100">
+                                <span class="text-[8px] text-slate-400">Cargando...</span>
+                            </div>
+                            <img src="" alt="Tríptico corporativo" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fila Central: Aparadores y Plotter -->
+                <div class="grid grid-cols-2 gap-3 w-full">
+                    <div id="impresos-vinyl-container" class="bg-white rounded-xl p-2.5 shadow-sm border border-slate-200/60 flex flex-col relative">
+                        <span class="text-[8px] font-bold text-slate-400 uppercase mb-1 block">Vinil de Aparador</span>
+                        <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100">
+                                <span class="text-[8px] text-slate-400">Cargando...</span>
+                            </div>
+                            <img src="" alt="Aparador con vinil" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                    <div id="impresos-plotter-container" class="bg-white rounded-xl p-2.5 shadow-sm border border-slate-200/60 flex flex-col relative">
+                        <span class="text-[8px] font-bold text-slate-400 uppercase mb-1 block">Plotter de Impresión</span>
+                        <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100">
+                                <span class="text-[8px] text-slate-400">Cargando...</span>
+                            </div>
+                            <img src="" alt="Plotter de gran formato" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fila Inferior: Roll-up Stand -->
+                <div id="impresos-rollup-container" class="bg-white rounded-xl p-2.5 shadow-sm border border-slate-200/60 flex flex-col relative">
+                    <span class="text-[8px] font-bold text-slate-400 uppercase mb-1 block">Banners de Piso (Roll-ups)</span>
+                    <div class="relative w-full aspect-[21/9] rounded-lg overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                        <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100">
+                            <span class="text-[8px] text-slate-400">Cargando...</span>
+                        </div>
+                        <img src="" alt="Roll-up promocional" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DIAPOSITIVA 7: UNIFORMES (PÁGINA 10 BROCHURE) ================= -->
+        <section id="slide-7" class="print-page bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden transition-all duration-500 hidden flex-col lg:flex-row min-h-[550px]">
+            <div class="flex-1 p-8 lg:p-12 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-bold text-enlaceBlue-600 uppercase tracking-widest block mb-1">Producción y Logística Textil</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Uniformes Corporativos</h2>
+                </div>
+
+                <div class="my-auto space-y-6">
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 flex items-center gap-2 mb-2">
+                            <span class="w-2 h-2 rounded-full bg-enlaceBlue-600"></span>
+                            Identidad Textil Personalizada
+                        </h3>
+                        <p class="text-slate-600 text-sm">
+                            Fabricamos y personalizamos uniformes completos para personal de gobierno o sector corporativo. Diseñamos playeras, sudaderas y chalecos institucionales de alta gama utilizando bordados de alta definición, serigrafía avanzada e impresión por sublimación.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 flex items-center gap-2 mb-2">
+                            <span class="w-2 h-2 rounded-full bg-enlaceRed"></span>
+                            Resistencia y Confort Institucional
+                        </h3>
+                        <p class="text-slate-600 text-sm">
+                            Nuestras prendas cuentan con tejidos técnicos de alta calidad y costuras reforzadas, ideales para personal operativo que requiere resistencia en campo y una presencia ejecutiva pulida.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Enlace Total • Calidad e Identidad</p>
+            </div>
+
+            <div class="flex-1 bg-slate-50 p-6 lg:p-8 flex flex-col gap-6 justify-center items-center border-l border-slate-100 overflow-y-auto">
+                <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl">
+                    
+                    <div id="uniform-1-container" class="bg-white rounded-2xl p-3 shadow-md border border-slate-200/60 flex flex-col relative min-h-[180px]">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 block">1. Chaleco Álvaro Obregón</span>
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400">
+                                <svg class="animate-spin h-6 w-6 text-enlaceBlue-600 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                            <div class="fallback-graphic hidden absolute inset-0 bg-slate-900 flex flex-col justify-between p-3 text-white">
+                                <div class="my-1">
+                                    <p class="text-[11px] font-black leading-tight uppercase text-white">ÁO CHALECO</p>
+                                </div>
+                            </div>
+                            <img src="" alt="Chaleco Oficial Álvaro Obregón" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                    <div id="uniform-2-container" class="bg-white rounded-2xl p-3 shadow-md border border-slate-200/60 flex flex-col relative min-h-[180px]">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 block">2. Sudadera Tricampeones</span>
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400">
+                                <svg class="animate-spin h-6 w-6 text-enlaceBlue-600 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                            <div class="fallback-graphic hidden absolute inset-0 bg-blue-900 flex flex-col justify-between p-3 text-white">
+                                <div class="my-1">
+                                    <p class="text-[11px] font-black leading-tight uppercase text-yellow-300">TRICAMP3ONES</p>
+                                </div>
+                            </div>
+                            <img src="" alt="Sudadera Tricampeones original" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                    <div id="uniform-3-container" class="bg-white rounded-2xl p-3 shadow-md border border-slate-200/60 flex flex-col relative min-h-[180px]">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 block">3. Territorial La Era</span>
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400">
+                                <svg class="animate-spin h-6 w-6 text-enlaceBlue-600 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                            <div class="fallback-graphic hidden absolute inset-0 bg-slate-950 flex flex-col justify-between p-3 text-white">
+                                <div class="my-1">
+                                    <p class="text-[11px] font-black leading-tight uppercase text-sky-400">LA ERA ÁO</p>
+                                </div>
+                            </div>
+                            <img src="" alt="Chaleco Territorial La Era original" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DIAPOSITIVA 8: EVENTOS MASIVOS Y ESPECIALES ================= -->
+        <section id="slide-8" class="print-page bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden transition-all duration-500 hidden flex-col lg:flex-row min-h-[550px]">
+            <div class="flex-1 p-8 lg:p-12 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-bold text-enlaceBlue-600 uppercase tracking-widest block mb-1">Coordinación y Logística Profesional</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Organización de Eventos</h2>
+                </div>
+
+                <div class="my-auto space-y-6">
+                    <p class="text-lg text-slate-600 leading-relaxed">
+                        Contamos con amplia experiencia en la producción llave en mano de espectáculos, actividades masivas, activaciones deportivas y eventos corporativos de gran escala.
+                    </p>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <span class="w-2.5 h-2.5 rounded-full bg-enlaceRed"></span>
+                            <span class="text-sm font-bold text-slate-800">Eventos de Entretenimiento (Lucha Libre Profesional)</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-2.5 h-2.5 rounded-full bg-enlaceBlue-600"></span>
+                            <span class="text-sm font-bold text-slate-800">Actividades Deportivas y Carreras Populares</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-2.5 h-2.5 rounded-full bg-enlaceGold"></span>
+                            <span class="text-sm font-bold text-slate-800">Conciertos y Actos Institucionales Gubernamentales</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Enlace Total • Producciones Memorables</p>
+            </div>
+
+            <!-- Columna de Imágenes Reales -->
+            <div class="flex-1 bg-slate-50 p-4 lg:p-6 flex flex-col gap-4 justify-center border-l border-slate-100 overflow-y-auto">
+                
+                <!-- Banner Panorámico Lucha Libre -->
+                <div id="event-banner-container" class="bg-white rounded-2xl p-2.5 shadow-md border border-slate-200/60 flex flex-col relative w-full">
+                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1 block">1. Cartelera Estelar Lucha Libre</span>
+                    <div class="relative w-full aspect-[21/9] rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                        <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100">
+                            <span class="text-[8px] font-medium text-slate-500">Cargando cartelera...</span>
+                        </div>
+                        <div class="fallback-graphic hidden absolute inset-0 bg-gradient-to-r from-enlaceRed to-enlaceBlue-800 flex justify-between items-center p-4 text-white">
+                            <div>
+                                <span class="text-[9px] bg-enlaceGold px-2 py-0.5 rounded text-slate-950 font-extrabold">SUPER CARTELERA</span>
+                            </div>
+                        </div>
+                        <img src="" alt="Banner Lucha Libre" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                    </div>
+                </div>
+
+                <!-- Cuadrícula de Eventos -->
+                <div class="grid grid-cols-2 gap-4 w-full">
+                    <div id="event-gala-container" class="bg-white rounded-2xl p-2 shadow-md border border-slate-200/60 flex flex-col relative">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase mb-1 block">2. Gala & Producción</span>
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100"></div>
+                            <img src="" alt="Gala Corporativa" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                    <div id="event-decor-container" class="bg-white rounded-2xl p-2 shadow-md border border-slate-200/60 flex flex-col relative">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase mb-1 block">3. Ambientación</span>
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center border border-slate-200">
+                            <div class="loading-spinner absolute inset-0 flex flex-col items-center justify-center bg-slate-100"></div>
+                            <img src="" alt="Decoración con Bombillas" class="hidden w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DIAPOSITIVA 9: DATOS DE CONTACTO ================= -->
+        <section id="slide-9" class="print-page bg-gradient-to-br from-enlaceBlue-900 to-enlaceBlue-950 text-white rounded-3xl shadow-xl overflow-hidden transition-all duration-500 hidden flex-col lg:flex-row min-h-[550px] relative">
+            
+            <div class="absolute inset-0 opacity-5 pointer-events-none">
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="grid-dark" width="60" height="60" patternUnits="userSpaceOnUse">
+                            <circle cx="30" cy="30" r="1" fill="white" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid-dark)" />
+                </svg>
+            </div>
+
+            <div class="flex-1 p-8 lg:p-12 flex flex-col justify-between z-10">
+                <div class="flex items-center gap-3">
+                    <div class="flex items-end gap-1.5 h-10">
+                        <div class="w-3 h-10 bg-enlaceRed rounded-sm"></div>
+                        <div class="w-3 h-7 bg-white rounded-sm"></div>
+                        <div class="w-3 h-4 bg-enlaceGold rounded-sm"></div>
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-xl tracking-tight block">enLACE TOTAL</span>
+                        <span class="text-xs block text-slate-300 font-medium -mt-1">Servicios Publicitarios</span>
+                    </div>
+                </div>
+
+                <div class="my-auto py-8">
+                    <span class="inline-block bg-white/10 text-enlaceGold font-bold text-xs tracking-widest uppercase px-3 py-1 rounded-full mb-4">Contacto Corporativo</span>
+                    <h2 class="text-3xl lg:text-4xl font-extrabold leading-snug">¿Listo para iniciar tu próxima campaña?</h2>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <span class="p-2 bg-white/10 rounded-lg text-enlaceGold">📍</span>
+                        <p class="text-xs text-slate-200">Vasco de Quiroga No. 3900, Torre A, Piso 10 - B, Col. Santa Fe, Alcaldía Cuajimalpa de Morelos, CDMX. C.P. 05348</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna del Formulario Directo -->
+            <div class="flex-1 bg-white/5 backdrop-blur-md p-8 lg:p-12 flex flex-col justify-between border-l border-white/10 z-10">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">Solicitar una Cotización</h3>
+                    <p class="text-slate-300 text-xs">Completa tus datos para agendar una reunión ejecutiva.</p>
+                </div>
+
+                <form onsubmit="handleContactSubmit(event)" class="space-y-4 my-auto">
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-300 uppercase tracking-widest mb-1">Nombre Completo</label>
+                        <input type="text" value="Pablo Izquierdo" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-enlaceBlue-500 transition" />
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-300 uppercase tracking-widest mb-1">Correo Corporativo</label>
+                        <input type="email" value="izquierdos.g.p@hotmail.com" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-enlaceBlue-500 transition" />
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-300 uppercase tracking-widest mb-1">¿Qué servicio te interesa?</label>
+                        <select class="w-full bg-slate-800 border border-white/20 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-enlaceBlue-500 transition">
+                            <option>Publicidad Exterior (Bardas / Espectaculares)</option>
+                            <option>Impresión & Merchandising Corporativo</option>
+                            <option>Uniformes & Merchandising Corporativo</option>
+                            <option>Organización de Eventos Especiales</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-enlaceGold hover:bg-yellow-500 text-slate-950 font-extrabold text-sm py-3 rounded-xl transition shadow-lg shadow-enlaceGold/20">
+                        Enviar Solicitud de Información
+                    </button>
+                </form>
+
+                <div class="text-center text-[10px] text-slate-400">
+                    <span>Enlace Total y Servicios Publicitarios © 2026. Todos los derechos reservados.</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Barra de Controles de Diapositivas (No-Imprimible) -->
+    <footer class="no-print bg-white border-t border-slate-200 py-4 px-6 flex justify-between items-center max-w-7xl w-full mx-auto rounded-t-3xl shadow-lg mt-auto">
+        <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-slate-400">Páginas:</span>
+            <div class="flex gap-1.5" id="slide-indicators">
+                <!-- Se rellena con JS -->
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <button onclick="prevSlide()" class="bg-slate-100 hover:bg-slate-200 text-slate-800 p-2.5 rounded-xl transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <span class="text-sm font-bold text-slate-600" id="slide-counter">1 / 9</span>
+            <button onclick="nextSlide()" class="bg-enlaceBlue-600 hover:bg-enlaceBlue-700 text-white p-2.5 rounded-xl transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Ventana de Guía / Modal de PDF Personalizada -->
+    <div id="pdf-guide-modal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 lg:p-8 max-w-md w-full shadow-2xl border border-slate-100 relative">
+            <button onclick="closePDFGuide()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1.5 rounded-xl hover:bg-slate-100 transition">
+                ✕
+            </button>
+            <div class="text-center">
+                <div class="w-16 h-16 bg-enlaceBlue-100 text-enlaceBlue-600 rounded-2xl flex justify-center items-center mx-auto mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Instrucciones de Exportación a PDF</h3>
+                <p class="text-sm text-slate-600 mb-6">Hemos diseñado una hoja de estilos de impresión profesional para que las diapositivas se guarden de manera horizontal e impecable en tu computadora.</p>
+                
+                <div class="text-left space-y-4 mb-6">
+                    <div class="flex gap-3">
+                        <span class="w-6 h-6 bg-slate-100 text-slate-700 rounded-full flex justify-center items-center text-xs font-bold shrink-0">1</span>
+                        <p class="text-xs text-slate-600">Al dar clic en <strong>"Guardar PDF"</strong> abajo, se abrirá el menú de impresión de tu navegador.</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="w-6 h-6 bg-slate-100 text-slate-700 rounded-full flex justify-center items-center text-xs font-bold shrink-0">2</span>
+                        <p class="text-xs text-slate-600">En <strong>Destino</strong>, selecciona <strong>"Guardar como PDF"</strong>.</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="w-6 h-6 bg-slate-100 text-slate-700 rounded-full flex justify-center items-center text-xs font-bold shrink-0">3</span>
+                        <p class="text-xs text-slate-600">En la opción de <strong>Orientación</strong>, configúrala como <strong>Horizontal (Landscape)</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <button onclick="closePDFGuide()" class="flex-1 border border-slate-200 text-slate-700 hover:bg-slate-50 font-bold text-sm py-3 rounded-xl transition">
+                        Cancelar
+                    </button>
+                    <button onclick="executePDFPrint()" class="flex-1 bg-enlaceBlue-600 hover:bg-enlaceBlue-700 text-white font-bold text-sm py-3 rounded-xl transition shadow-md shadow-enlaceBlue-600/10">
+                        Guardar PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Formulario Enviado Exitosamente -->
+    <div id="form-success-modal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 text-center max-w-sm w-full shadow-2xl border border-slate-100 relative">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex justify-center items-center mx-auto mb-4">
+                ✓
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">¡Solicitud Enviada!</h3>
+            <p class="text-sm text-slate-600 mb-6">Hemos recibido tu solicitud de cotización correctamente. Un consultor se pondrá en contacto contigo en breve.</p>
+            <button onclick="closeSuccessModal()" class="w-full bg-enlaceBlue-600 hover:bg-enlaceBlue-700 text-white font-bold text-sm py-3 rounded-xl transition">
+                Entendido
+            </button>
+        </div>
+    </div>
+
+    <!-- Script de lógica de navegación y PDF interactivo -->
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 9;
+
+        // Cargar indicadores de diapositivas en footer
+        const indicatorsContainer = document.getElementById('slide-indicators');
+        for (let i = 1; i <= totalSlides; i++) {
+            const indicatorBtn = document.createElement('button');
+            indicatorBtn.className = `w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === 1 ? 'bg-enlaceBlue-600 w-6' : 'bg-slate-200 hover:bg-slate-300'}`;
+            indicatorBtn.id = `indicator-${i}`;
+            indicatorBtn.onclick = () => goToSlide(i);
+            indicatorsContainer.appendChild(indicatorBtn);
+        }
+
+        function updateIndicators() {
+            for (let i = 1; i <= totalSlides; i++) {
+                const indicator = document.getElementById(`indicator-${i}`);
+                if (i === currentSlide) {
+                    indicator.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 bg-enlaceBlue-600 w-6';
+                } else {
+                    indicator.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 bg-slate-200 hover:bg-slate-300';
+                }
+            }
+        }
+
+        function updateNavHeader() {
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                const slideNum = parseInt(btn.getAttribute('data-slide'));
+                if (slideNum === currentSlide) {
+                    btn.classList.add('bg-enlaceBlue-100', 'text-enlaceBlue-700');
+                } else {
+                    btn.classList.remove('bg-enlaceBlue-100', 'text-enlaceBlue-700');
+                }
+            });
+        }
+
+        function goToSlide(slideNumber) {
+            if (slideNumber < 1 || slideNumber > totalSlides) return;
+            
+            // Ocultar actual
+            document.getElementById(`slide-${currentSlide}`).classList.add('hidden');
+            document.getElementById(`slide-${currentSlide}`).classList.remove('flex');
+            
+            // Mostrar nueva diapositiva
+            currentSlide = slideNumber;
+            const targetSlide = document.getElementById(`slide-${currentSlide}`);
+            targetSlide.classList.remove('hidden');
+            targetSlide.classList.add('flex');
+            
+            // Actualizar footer
+            document.getElementById('slide-counter').innerText = `${currentSlide} / ${totalSlides}`;
+            updateIndicators();
+            updateNavHeader();
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                goToSlide(currentSlide + 1);
+            } else {
+                goToSlide(1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                goToSlide(currentSlide - 1);
+            } else {
+                goToSlide(totalSlides);
+            }
+        }
+
+        // Funciones del Modal Guía de PDF
+        function showPDFGuide() {
+            document.getElementById('pdf-guide-modal').classList.remove('hidden');
+        }
+
+        function closePDFGuide() {
+            document.getElementById('pdf-guide-modal').classList.add('hidden');
+        }
+
+        function executePDFPrint() {
+            closePDFGuide();
+            // Mostrar temporalmente todas las diapositivas
+            for (let i = 1; i <= totalSlides; i++) {
+                document.getElementById(`slide-${i}`).classList.remove('hidden');
+                document.getElementById(`slide-${i}`).classList.add('flex');
+            }
+            
+            window.print();
+            
+            // Restaurar visualización
+            for (let i = 1; i <= totalSlides; i++) {
+                if (i !== currentSlide) {
+                    document.getElementById(`slide-${i}`).classList.add('hidden');
+                    document.getElementById(`slide-${i}`).classList.remove('flex');
+                }
+            }
+        }
+
+        // Formulario de Contacto
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            document.getElementById('form-success-modal').classList.remove('hidden');
+            event.target.reset();
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('form-success-modal').classList.add('hidden');
+        }
+
+        // Soporte teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        updateNavHeader();
+
+        // Llamada a la API de Imagen para generar las ilustraciones reales en tiempo de ejecución
+        async function generateCatalogImage(prompt, elementId) {
+            const container = document.getElementById(elementId);
+            if (!container) return;
+            const spinner = container.querySelector('.loading-spinner');
+            const imgEl = container.querySelector('img');
+            const fallbackEl = container.querySelector('.fallback-graphic');
+
+            const apiKey = ""; 
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=${apiKey}`;
+            const payload = {
+                instances: [{ prompt: prompt }],
+                parameters: { "sampleCount": 1 }
+            };
+
+            let delay = 1000;
+            const maxRetries = 3;
+
+            for (let attempt = 0; attempt < maxRetries; attempt++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
+                        const imageUrl = `data:image/png;base64,${result.predictions[0].bytesBase64Encoded}`;
+                        imgEl.src = imageUrl;
+                        imgEl.classList.remove('hidden');
+                        if (spinner) spinner.classList.add('hidden');
+                        if (fallbackEl) fallbackEl.classList.add('hidden');
+                        return;
+                    } else {
+                        throw new Error("Formato de respuesta inesperado");
+                    }
+                } catch (error) {
+                    console.debug(`Intento ${attempt + 1} de generación de imagen falló. Reintentando...`, error);
+                    if (attempt === maxRetries - 1) {
+                        if (spinner) spinner.classList.add('hidden');
+                        if (fallbackEl) fallbackEl.classList.remove('hidden');
+                    } else {
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2;
+                    }
+                }
+            }
+        }
+
+        window.addEventListener('load', () => {
+            // Pagina 3
+            generateCatalogImage(
+                "A real professional photo of a street concrete wall painted bright purple, with bold white lettering 'MUJER: SI TE SIENTES EN PELIGRO BUSCA UN...' and a purple ribbon symbol, Mexican street setting, daylight, real advertisement style", 
+                "barda-img-container"
+            );
+            generateCatalogImage(
+                "A high-quality professional photo of a giant highway billboard (espectacular) on a steel pillar next to a city highway showing a luxury tequila bottle advertisement under a bright blue sky, daylight", 
+                "espectacular-img-container"
+            );
+            generateCatalogImage(
+                "A realistic professional photo of a green PEMEX gas station totem screen in Mexico City ES 13711, showing gas prices 20.49 and 21.69, and a bright digital advertising screen in the center under a clear blue sky, daylight",
+                "pemex-img-container"
+            );
+
+            // Pagina 4
+            generateCatalogImage(
+                "A realistic professional photo of a large vinyl banner advertising a 'Feria de Empleo CDMX' hanging perfectly on a metal pedestrian walkway bridge (puente peatonal) over a high-traffic avenue in Mexico City, daylight",
+                "puente-1-container"
+            );
+            generateCatalogImage(
+                "A professional photo of a long horizontal colorful public service announcement banner hanging securely on the side of a busy city pedestrian overpass bridge, daylight, clear sky, street photography",
+                "puente-2-container"
+            );
+
+            // Pagina 5
+            generateCatalogImage(
+                "A professional photograph of a black classic Volkswagen Beetle (Vochito) with vibrant Red Bull graphics and branding elements cleanly applied to its side body, parked on a city street, daylight",
+                "vehicle-1-container"
+            );
+            generateCatalogImage(
+                "A professional photo of a white commercial cargo delivery van with custom corporate colorful paint splashes and the bold logo 'HURAKÁN' on its side, parked in an urban area, daylight",
+                "vehicle-2-container"
+            );
+            generateCatalogImage(
+                "A professional photo of a white mid-size sedan car with clean and elegant corporate green and blue vinyl graphics for 'Old Mutual' on its side panels, parked on a clean street, daylight",
+                "vehicle-3-container"
+            );
+
+            // Pagina 6 (Impresos - Nuevo contenido Página 9 del Brochure)
+            generateCatalogImage(
+                "A professional studio product photograph of a pile of clean corporate brochures and catalogs stacked on a white table, daylight, sharp focus",
+                "impresos-brochure-container"
+            );
+            generateCatalogImage(
+                "A professional mockup photograph of a clean, minimalist trifold corporate brochure template, open on a modern desk with a green plant in background, daylight",
+                "impresos-trifold-container"
+            );
+            generateCatalogImage(
+                "A realistic photo of a large high-resolution printed storefront window advertisement vinyl showing vibrant colorful illustrations, daylight",
+                "impresos-vinyl-container"
+            );
+            generateCatalogImage(
+                "A photo of an industrial large format plotter printer actively printing a highly colorful poster design, detailed action shot in a print shop",
+                "impresos-plotter-container"
+            );
+            generateCatalogImage(
+                "A professional photo of a corporate vertical rollup banner stand standing in a bright minimalist office lobby, clean modern layout mockup",
+                "impresos-rollup-container"
+            );
+
+            // Pagina 7 (Uniformes)
+            generateCatalogImage(
+                "A professional studio photograph of the back of a black outdoor zip-up work vest featuring clean and high-density white embroidery reading 'ÁO ÁLVARO OBREGÓN ALCALDÍA 2024 - 2027', laid flat on a clean surface",
+                "uniform-1-container"
+            );
+            generateCatalogImage(
+                "A professional close-up flat lay photo of the back of a royal blue pullover sports hoodie with a vibrant screen print of yellow trophies and bold text 'TRICAMPEONES' in golden lettering",
+                "uniform-2-container"
+            );
+            generateCatalogImage(
+                "A professional product photograph of the back of a black softshell corporate jacket featuring detailed embroidery with 'TERRITORIAL LA ERA' in white letters above a large colorful red, yellow, and blue 'ÁO' insignia",
+                "uniform-3-container"
+            );
+
+            // Pagina 8 (Eventos)
+            generateCatalogImage(
+                "A professional wide panoramic banner photograph of several Mexican Lucha Libre wrestlers wearing colorful luchador masks posing side-by-side, dramatic sports lighting, high contrast",
+                "event-banner-container"
+            );
+            generateCatalogImage(
+                "A professional photograph of a luxury corporate gala dinner hall with round tables set with white tablecloths, glowing purple and violet ambient lighting, cozy elegant atmosphere",
+                "event-gala-container"
+            );
+            generateCatalogImage(
+                "A professional close-up photo of an elegant floral center arrangement with small warm hanging decorative lightbulbs in the background at an evening wedding or gala event, shallow depth of field",
+                "event-decor-container"
+            );
+        });
+    </script>
+</body>
+</html>
