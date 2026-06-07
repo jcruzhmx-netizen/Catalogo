@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlace Total — Catálogo de Servicios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        eBlue: { 50:'#f0f7ff',100:'#e0effe',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a',950:'#0f172a' },
+                        eRed: '#ef4444',
+                        eGold: '#eab308'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Plus Jakarta Sans', sans-serif; }
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width:6px; }
+        ::-webkit-scrollbar-track { background:#f1f5f9; }
+        ::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:4px; }
+        .section-fade { opacity:0; transform:translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+        .section-fade.visible { opacity:1; transform:none; }
+        .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+        .card-hover:hover { transform:translateY(-4px); box-shadow:0 20px 40px -12px rgba(37,99,235,.15); }
+        .img-card { position:relative; overflow:hidden; background:#f1f5f9; border-radius:12px; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; }
+        .spinner { width:28px;height:28px;border:3px solid #e2e8f0;border-top-color:#2563eb;border-radius:50%;animation:spin 1s linear infinite; }
+        @keyframes spin { to { transform:rotate(360deg); } }
+        .tag { display:inline-block;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase; }
+        .dot { width:8px;height:8px;border-radius:50%;flex-shrink:0; }
+        nav a { transition:color .2s; }
+        .hero-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.15) 1px, transparent 0); background-size:40px 40px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+<!-- ── NAV ─────────────────────────────────────────────── -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="#inicio" class="flex items-center gap-3 no-underline">
+            <div class="flex items-end gap-1 h-9">
+                <div class="w-3 h-9 bg-eRed rounded-sm"></div>
+                <div class="w-3 h-7 bg-eBlue-700 rounded-sm"></div>
+                <div class="w-3 h-5 bg-eGold rounded-sm"></div>
+            </div>
+            <div>
+                <span class="font-black text-lg tracking-tight text-slate-900 block leading-none">enLACE TOTAL</span>
+                <span class="text-[10px] font-semibold text-slate-500 tracking-wider uppercase">Servicios Publicitarios</span>
+            </div>
+        </a>
+        <!-- Nav links -->
+        <nav class="hidden lg:flex items-center gap-1 text-xs font-bold text-slate-500">
+            <a href="#nosotros" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-eBlue-700">Nosotros</a>
+            <a href="#exteriores" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-eBlue-700">Exteriores</a>
+            <a href="#puentes" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-eBlue-700">Puentes</a>
+            <a href="#flotillas" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-eBlue-700">Flotillas</a>
+            <a href="#impresos" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-eBlue-700">Impresos</a>
+            <a href="#uniformes" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-eBlue-700">Uniformes</a>
+            <a href="#eventos" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-eBlue-700">Eventos</a>
+            <a href="#contacto" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-eBlue-700">Contacto</a>
+        </nav>
+        <a href="#contacto" class="bg-eBlue-600 hover:bg-eBlue-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow-md">Cotizar ahora</a>
+    </div>
+</header>
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section id="inicio" class="relative bg-gradient-to-br from-eBlue-950 to-eBlue-900 text-white overflow-hidden min-h-[88vh] flex items-center">
+    <div class="hero-grid absolute inset-0 z-0"></div>
+    <div class="absolute -top-20 -right-20 w-[500px] h-[500px] bg-eBlue-600/30 rounded-full blur-3xl z-0"></div>
+    <div class="absolute bottom-0 -left-20 w-[350px] h-[350px] bg-cyan-500/10 rounded-full blur-3xl z-0"></div>
+
+    <div class="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+        <div>
+            <span class="tag bg-white/10 text-eGold px-4 py-1.5 rounded-full mb-6 inline-block">Portafolio Corporativo 2026</span>
+            <h1 class="text-5xl lg:text-6xl font-black leading-[1.1] mb-6">
+                Soluciones <span class="text-transparent bg-clip-text bg-gradient-to-r from-eGold to-yellow-300">Integrales</span><br>de Comunicación
+            </h1>
+            <p class="text-lg text-slate-300 leading-relaxed mb-10 max-w-xl">
+                Más de 20 años posicionando marcas a través de publicidad exterior, medios digitales, impresos y organización de eventos estratégicos en toda la República Mexicana.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#nosotros" class="bg-white text-eBlue-900 font-extrabold px-6 py-3 rounded-xl hover:bg-slate-100 transition shadow-lg">Ver portafolio</a>
+                <a href="#contacto" class="border border-white/30 text-white font-bold px-6 py-3 rounded-xl hover:bg-white/10 transition">Solicitar cotización</a>
+            </div>
+        </div>
+        <!-- Stats -->
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 card-hover">
+                <span class="text-4xl font-black text-eGold block">20+</span>
+                <span class="text-sm font-semibold text-slate-300">Años de experiencia comprobada</span>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 card-hover">
+                <span class="text-4xl font-black text-eGold block">16</span>
+                <span class="text-sm font-semibold text-slate-300">Alcaldías con cobertura CDMX</span>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 card-hover">
+                <span class="text-4xl font-black text-eGold block">7</span>
+                <span class="text-sm font-semibold text-slate-300">Líneas de servicio integral</span>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 card-hover">
+                <span class="text-4xl font-black text-eGold block">100%</span>
+                <span class="text-sm font-semibold text-slate-300">Atención personalizada</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── NOSOTROS ─────────────────────────────────────────── -->
+<section id="nosotros" class="py-24 bg-white section-fade">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <span class="tag text-eBlue-600 bg-eBlue-50 px-3 py-1 rounded-full mb-4 inline-block">Trayectoria de Excelencia</span>
+                <h2 class="text-4xl font-black text-slate-900 mb-6">¿Quiénes Somos?</h2>
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                    Con <strong class="text-slate-900">Enlace Total</strong> cuentas con el respaldo de una agencia de publicidad, comunicación e imagen con <strong class="text-eBlue-600">más de 20 años en el mercado</strong>.
+                </p>
+                <p class="text-slate-600 leading-relaxed mb-8">
+                    Nuestra visión se centra en brindar servicios integrales de calidad para posicionar estratégicamente tu marca, producto o negocio, contando con la infraestructura de vanguardia necesaria para lograrlo de manera rápida y efectiva.
+                </p>
+                <a href="#contacto" class="inline-block bg-eBlue-600 hover:bg-eBlue-700 text-white font-bold px-6 py-3 rounded-xl transition shadow-md">Conoce más →</a>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 card-hover">
+                    <span class="text-3xl mb-3 block">📺</span>
+                    <h4 class="font-bold text-slate-900 mb-1">Medios Tradicionales</h4>
+                    <p class="text-sm text-slate-500">Espectaculares, bardas y puentes peatonales.</p>
+                </div>
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 card-hover">
+                    <span class="text-3xl mb-3 block">💻</span>
+                    <h4 class="font-bold text-slate-900 mb-1">Soluciones Digitales</h4>
+                    <p class="text-sm text-slate-500">Web, redes sociales e interactivos.</p>
+                </div>
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 card-hover">
+                    <span class="text-3xl mb-3 block">🖨️</span>
+                    <h4 class="font-bold text-slate-900 mb-1">Diseño & Animación</h4>
+                    <p class="text-sm text-slate-500">Modelado 2D, 3D e ilustración.</p>
+                </div>
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 card-hover">
+                    <span class="text-3xl mb-3 block">🎪</span>
+                    <h4 class="font-bold text-slate-900 mb-1">Logística & Eventos</h4>
+                    <p class="text-sm text-slate-500">Coordinación masiva e institucional.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── EXTERIORES ──────────────────────────────────────── -->
+<section id="exteriores" class="py-24 bg-slate-50 section-fade">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="mb-12">
+            <span class="tag text-eBlue-600 bg-eBlue-50 px-3 py-1 rounded-full mb-4 inline-block">Medios Exteriores Clásicos</span>
+            <h2 class="text-4xl font-black text-slate-900 mb-4">Publicidad Exterior y Difusión</h2>
+            <p class="text-slate-500 max-w-2xl">Especialistas en rotulación de bardas, espectaculares y pantallas digitales. Presencia sólida en avenidas de alto flujo en las 16 alcaldías.</p>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden card-hover">
+                <div class="img-card rounded-none">
+                    <div class="spinner" id="sp-barda"></div>
+                    <div class="fallback-graphic hidden absolute inset-0 bg-indigo-900 flex items-center justify-center p-6">
+                        <div class="text-center text-white">
+                            <div class="text-5xl mb-3">🏛️</div>
+                            <p class="font-black text-lg uppercase text-yellow-300">Rotulación de Bardas</p>
+                        </div>
+                    </div>
+                    <img id="img-barda" src="" alt="Rotulación de Bardas" class="hidden w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center gap-2 mb-2"><div class="dot bg-eRed"></div><span class="tag text-slate-400">Bardas y Muros</span></div>
+                    <h3 class="font-extrabold text-slate-900 mb-2">Rotulación de Bardas</h3>
+                    <p class="text-sm text-slate-500">Pinta de muros estratégicos para programas sociales o campañas institucionales en avenidas de alto flujo vehicular.</p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden card-hover">
+                <div class="img-card rounded-none">
+                    <div class="spinner" id="sp-esp"></div>
+                    <div class="fallback-graphic hidden absolute inset-0 bg-slate-900 flex items-center justify-center p-6">
+                        <div class="text-center text-white">
+                            <div class="text-5xl mb-3">🗺️</div>
+                            <p class="font-black text-lg uppercase text-eGold">Espectaculares</p>
+                        </div>
+                    </div>
+                    <img id="img-esp" src="" alt="Cartelera Espectacular" class="hidden w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center gap-2 mb-2"><div class="dot bg-eBlue-600"></div><span class="tag text-slate-400">Gran Formato</span></div>
+                    <h3 class="font-extrabold text-slate-900 mb-2">Carteleras & Espectaculares</h3>
+                    <p class="text-sm text-slate-500">Lonas de gran formato diseñadas para maximizar visibilidad y lograr posicionamiento mental de marca en toda la CDMX.</p>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden card-hover">
+                <div class="img-card rounded-none">
+                    <div class="spinner" id="sp-pemex"></div>
+                    <div class="fallback-graphic hidden absolute inset-0 bg-emerald-950 flex items-center justify-center p-6">
+                        <div class="text-center text-white">
+                            <div class="text-5xl mb-3">⛽</div>
+                            <p class="font-black text-lg uppercase text-yellow-300">Pantallas Digitales</p>
+                        </div>
+                    </div>
+                    <img id="img-pemex" src="" alt="Pantalla Digital" class="hidden w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center gap-2 mb-2"><div class="dot bg-eGold"></div><span class="tag text-slate-400">Medios Digitales</span></div>
+                    <h3 class="font-extrabold text-slate-900 mb-2">Pantallas en Gasolinera</h3>
+                    <p class="text-sm text-slate-500">Anuncios en pantallas digitales estratégicamente ubicadas en gasolineras de la red PEMEX con alto tráfico diario.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── PUENTES ─────────────────────────────────────────── -->
+<section id="puentes" class="py-24 bg-white section-fade">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+                <span class="tag text-eBlue-600 bg-eBlue-50 px-3 py-1 rounded-full mb-4 inline-block">Impacto Urbano Colectivo</span>
+                <h2 class="text-4xl font-black text-slate-900 mb-6">Lonas en Puentes Peatonales</h2>
+                <div class="space-y-5">
+                    <div class="flex items-start gap-3">
+                        <div class="dot bg-eGold mt-1.5"></div>
+                        <div>
+                            <h4 class="font-extrabold text-slate-900 mb-1">Difusión en Puentes Peatonales</h4>
+                            <p class="text-sm text-slate-500">Instalación de lonas de gran formato sobre avenidas de mayor flujo vial, con visión directa para miles de automovilistas y usuarios de transporte público.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="dot bg-eBlue-600 mt-1.5"></div>
+                        <div>
+                            <h4 class="font-extrabold text-slate-900 mb-1">Administración y Logística Completa</h4>
+                            <p class="text-sm text-slate-500">Nos encargamos de todo: diseño, impresión, colocación segura, mantenimiento constante y remoción al término de la campaña.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 card-hover">
+                    <div class="img-card rounded-none">
+                        <div class="spinner" id="sp-p1"></div>
+                        <div class="fallback-graphic hidden absolute inset-0 bg-blue-900 flex items-center justify-center p-4">
+                            <p class="font-black text-white text-center uppercase text-sm">Feria de Empleo CDMX</p>
+                        </div>
+                        <img id="img-p1" src="" alt="Lona Puente 1" class="hidden w-full h-full object-cover">
+                    </div>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider p-3">Lona en Puente — Feria de Empleo</p>
+                </div>
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 card-hover">
+                    <div class="img-card rounded-none">
+                        <div class="spinner" id="sp-p2"></div>
+                        <div class="fallback-graphic hidden absolute inset-0 bg-emerald-900 flex items-center justify-center p-4">
+                            <p class="font-black text-yellow-300 text-center uppercase text-sm">Campamento de Verano</p>
+                        </div>
+                        <img id="img-p2" src="" alt="Lona Puente 2" class="hidden w-full h-full object-cover">
+                    </div>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider p-3">Lona en Puente — Informativa Vial</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FLOTILLAS ───────────────────────────────────────── -->
+<section id="flotillas" class="py-24 bg-slate-50 section-fade">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="mb-12">
+            <span class="tag text-eBlue-600 bg-eBlue-50 px-3 py-1 rounded-full mb-4 inline-block">Medios Urbanos e Identidad Móvil</span>
+            <h2 class="text-4xl font-black text-slate-900 mb-4">Rotulación de Flotillas</h2>
+            <p class="text-slate-500 max-w-2xl">Diseñamos, imprimimos e instalamos rotulaciones completas en flotillas oficiales o comerciales. Convertimos vehículos en espectaculares móviles de alta resistencia.</p>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden card-hover">
+                <div class="img-card rounded-none">
+                    <div class="spinner" id="sp-v1"></div>
+                    <div class="fallback-graphic hidden absolute inset-0 bg-slate-900 flex items-center justify-center p-6">
+                        <p class="font-black text-yellow-300 text-center uppercase">RED BULL · Vochito</p>
+                    </div>
+                    <img id="img-v1" src="" alt="Vochito Red Bull" class="hidden w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-extrabold text-slate-900 mb-1">Vochito Red Bull</h3>
+                    <p class="text-sm text-slate-500">Rotulación completa con gráficos de marca en vehículo compacto para activaciones urbanas.</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden card-hover">
+                <div class="img-card rounded-none">
+                    <div class="spinner" id="sp-v2"></div>
+                    <div class="fallback-graphic hidden absolute inset-0 bg-slate-800 flex items-center justify-center p-6">
+                        <p class="font-black text-emerald-400 text-center uppercase text-xl">HURAKÁN</p>
+                    </div>
+                    <img id="img-v2" src="" alt="Camioneta Huracán" class="hidden w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-extrabold text-slate-900 mb-1">Camioneta Hurakán</h3>
+                    <p class="text-sm text-slate-500">Camioneta de carga con diseño corporativo colorido aplicado en carrocería completa.</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden card-hover">
+                <div class="img-card rounded-none">
+                    <div class="spinner" id="sp-v3"></div>
+                    <div class="fallback-graphic hidden absolute inset-0 bg-slate-700 flex items-center justify-center p-6">
+                        <p class="font-black text-white text-center uppercase">OLD MUTUAL · Sedán</p>
+                    </div>
+                    <img id="img-v3" src="" alt="Sedán Old Mutual" class="hidden w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-extrabold text-slate-900 mb-1">Sedán Old Mutual</h3>
+                    <p class="text-sm text-slate-500">Vinil corporativo elegante en sedán con identidad de marca consistente para flotilla empresarial.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── IMPRESOS ────────────────────────────────────────── -->
+<section id="impresos" class="py-24 bg-white section-fade">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-start mb-12">
+            <div>
+                <span class="tag text-eBlue-600 bg-eBlue-50 px-3 py-1 rounded-full mb-4 inline-block">Producción de Alto Formato</span>
+                <h2 class="text-4xl font-black text-slate-900 mb-6">Impresos Publicitarios</h2>
+                <div class="space-y-5">
+                    <div class="flex items-start gap-3">
+                        <div class="dot bg-eRed mt-1.5"></div>
+                        <div>
+                            <h4 class="font-extrabold text-slate-900 mb-1">Editorial e Identidad de Marca</h4>
+                            <p class="text-sm text-slate-500">Folletos comerciales, trípticos corporativos, catálogos premium y papelería institucional con acabados y papeles de primer nivel.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="dot bg-eGold mt-1.5"></div>
+                        <div>
+                            <h4 class="font-extrabold text-slate-900 mb-1">Gran Formato y Banners</h4>
+                            <p class="text-sm text-slate-500">Soportes rígidos, posters, roll-ups, displays de stand y viniles rotulados de alta escala para escaparates y aparadores comerciales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 card-hover">
+                    <div class="img-card rounded-none">
+                        <div class="spinner" id="sp-bro"></div>
+                        <div class="fallback-graphic hidden absolute inset-0 bg-slate-200 flex items-center justify-center"><span class="text-4xl">📚</span></div>
+                        <img id="img-bro" src="" alt="Brochures" class="hidden w-full h-full object-cover">
+                    </div>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider p-3">Brochures & Catálogos</p>
+                </div>
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 card-hover">
+                    <div class="img-card rounded-none">
+                        <div class="spinner" id="sp-tri"></div>
+                        <div class="fallback-graphic hidden absolute inset-0 bg-slate-200 flex items-center justify-center"><span class="text-4xl">📄</span></div>
+                        <img id="img-tri" src="" alt="Trípticos" class="hidden w-full h-full object-cover">
+                    </div>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider p-3">Trípticos Corporativos</p>
+                </div>
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 card-hover">
+                    <div class="img-card rounded-none">
+                        <div class="spinner" id="sp-viny"></div>
+                        <div class="fallback-graphic hidden absolute inset-0 bg-slate-200 flex items-center justify-center"><span class="text-4xl">🏪</span></div>
+                        <img id="img-viny" src="" alt="Vinil Aparador" class="hidden w-full h-full object-cover">
+                    </div>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider p-3">Vinil de Aparador</p>
+                </div>
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 card-hover">
+                    <div class="img-card rounded-none">
+                        <div class="spinner" id="sp-roll"></div>
+                        <div class="fallback-graphic hidden absolute inset-0 bg-slate-200 flex items-center justify-center"><span class="text-4xl">🎌</span></div>
+                        <img id="img-roll" src="" alt="Roll-up" class="hidden w-full h-full object-cover">
+                    </div>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider p-3">Banners Roll-up</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── UNIFORMES ──────────────────────────────────────── -->
+<section id="uniformes" class="py-24 bg-slate-50 section-fade">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="mb-12">
+            <span class="tag text-eBlue-600 bg-eBlue-50 px-3 py-1 rounded-full mb-4 inline-block">Producción y Logística Textil</span>
+            <h2 class="text-4xl font-black text-slate-900 mb-4">Uniformes Corporativos</h2>
+            <p class="text-slate-500 max-w-2xl">Fabricamos y personalizamos uniformes para personal de gobierno y sector corporativo. Bordados de alta definición, serigrafía avanzada e impresión por sublimación.</p>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden card-hover">
+                <div class="img-card rounded-none">
+                    <div class="spinner" id="sp-u1"></div>
+                    <div class="fallback-graphic hidden absolute inset-0 bg-slate-900 flex items-center justify-center p-6">
+                        <p class="font-black text-white text-center uppercase">ÁO ÁLVARO OBREGÓN · Chaleco</p>
+                    </div>
+                    <img id="img-u1" src="" alt="Chaleco AO" class="hidden w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-extrabold text-slate-900 mb-1">Chaleco Álvaro Obregón</h3>
+                    <p class="text-sm text-slate-500">Chaleco institucional negro con bordado de alta densidad para personal operativo de la alcaldía.</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden card-hover">
+                <div class="img-card rounded-none">
+                    <div class="spinner" id="sp-u2"></div>
+                    <div class="fallback-graphic hidden absolute inset-0 bg-blue-900 flex items-center justify-center p-6">
+                        <p class="font-black text-yellow-300 text-center uppercase text-xl">TRICAMPEONES 🏆</p>
+                    </div>
+                    <img id="img-u2" src="" alt="Sudadera Tricampeones" class="hidden w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-extrabold text-slate-900 mb-1">Sudadera Tricampeones</h3>
+                    <p class="text-sm text-slate-500">Hoodie deportivo azul con serigrafía dorada especial para equipo deportivo ganador.</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden card-hover">
+                <div class="img-card rounded-none">
+                    <div class="spinner" id="sp-u3"></div>
+                    <div class="fallback-graphic hidden absolute inset-0 bg-slate-950 flex items-center justify-center p-6">
+                        <p class="font-black text-sky-400 text-center uppercase">LA ERA · ÁO</p>
+                    </div>
+                    <img id="img-u3" src="" alt="Territorial La Era" class="hidden w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-extrabold text-slate-900 mb-1">Territorial La Era</h3>
+                    <p class="text-sm text-slate-500">Jacket softshell con bordado detallado del insignia ÁO en colores institucionales.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── EVENTOS ─────────────────────────────────────────── -->
+<section id="eventos" class="py-24 bg-white section-fade">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+                <span class="tag text-eBlue-600 bg-eBlue-50 px-3 py-1 rounded-full mb-4 inline-block">Coordinación y Logística Profesional</span>
+                <h2 class="text-4xl font-black text-slate-900 mb-6">Organización de Eventos</h2>
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">Amplia experiencia en la producción llave en mano de espectáculos, actividades masivas, activaciones deportivas y eventos corporativos de gran escala.</p>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3"><div class="dot bg-eRed"></div><span class="font-bold text-slate-800 text-sm">Eventos de Entretenimiento (Lucha Libre Profesional)</span></div>
+                    <div class="flex items-center gap-3"><div class="dot bg-eBlue-600"></div><span class="font-bold text-slate-800 text-sm">Actividades Deportivas y Carreras Populares</span></div>
+                    <div class="flex items-center gap-3"><div class="dot bg-eGold"></div><span class="font-bold text-slate-800 text-sm">Conciertos y Actos Institucionales Gubernamentales</span></div>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 card-hover">
+                    <div style="aspect-ratio:21/9" class="relative bg-slate-100 flex items-center justify-center overflow-hidden">
+                        <div class="spinner" id="sp-ev1"></div>
+                        <div class="fallback-graphic hidden absolute inset-0 bg-gradient-to-r from-eRed to-eBlue-800 flex items-center justify-center">
+                            <p class="font-black text-white text-xl uppercase">🥊 Lucha Libre Profesional</p>
+                        </div>
+                        <img id="img-ev1" src="" alt="Lucha Libre" class="hidden w-full h-full object-cover">
+                    </div>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider p-3">Cartelera Estelar — Lucha Libre</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 card-hover">
+                        <div class="img-card rounded-none">
+                            <div class="spinner" id="sp-ev2"></div>
+                            <div class="fallback-graphic hidden absolute inset-0 bg-purple-950 flex items-center justify-center"><span class="text-4xl">🎊</span></div>
+                            <img id="img-ev2" src="" alt="Gala Corporativa" class="hidden w-full h-full object-cover">
+                        </div>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider p-3">Gala & Producción</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 card-hover">
+                        <div class="img-card rounded-none">
+                            <div class="spinner" id="sp-ev3"></div>
+                            <div class="fallback-graphic hidden absolute inset-0 bg-amber-950 flex items-center justify-center"><span class="text-4xl">🌸</span></div>
+                            <img id="img-ev3" src="" alt="Decoración" class="hidden w-full h-full object-cover">
+                        </div>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider p-3">Ambientación</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CONTACTO ────────────────────────────────────────── -->
+<section id="contacto" class="py-24 bg-gradient-to-br from-eBlue-950 to-eBlue-900 text-white relative overflow-hidden">
+    <div class="hero-grid absolute inset-0 z-0"></div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-eBlue-600/20 rounded-full blur-3xl z-0"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="flex items-end gap-1.5 h-10">
+                        <div class="w-3 h-10 bg-eRed rounded-sm"></div>
+                        <div class="w-3 h-7 bg-white rounded-sm"></div>
+                        <div class="w-3 h-4 bg-eGold rounded-sm"></div>
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-xl block">enLACE TOTAL</span>
+                        <span class="text-xs text-slate-300">Servicios Publicitarios</span>
+                    </div>
+                </div>
+                <span class="tag bg-white/10 text-eGold px-3 py-1 rounded-full mb-4 inline-block">Contacto Corporativo</span>
+                <h2 class="text-4xl font-black mb-6">¿Listo para iniciar tu próxima campaña?</h2>
+                <div class="space-y-4 text-sm">
+                    <div class="flex items-start gap-3">
+                        <span class="p-2 bg-white/10 rounded-lg text-eGold text-base">📍</span>
+                        <p class="text-slate-300">Vasco de Quiroga No. 3900, Torre A, Piso 10-B, Col. Santa Fe, Alcaldía Cuajimalpa de Morelos, CDMX. C.P. 05348</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Formulario -->
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8">
+                <h3 class="font-extrabold text-lg mb-6">Solicitar Cotización</h3>
+                <form onsubmit="handleSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-300 uppercase tracking-widest mb-1">Nombre Completo</label>
+                        <input type="text" placeholder="Nombre completo" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-eBlue-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-300 uppercase tracking-widest mb-1">Correo Corporativo</label>
+                        <input type="email" placeholder="correo@empresa.com" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-eBlue-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-300 uppercase tracking-widest mb-1">¿Qué servicio te interesa?</label>
+                        <select class="w-full bg-slate-800 border border-white/20 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-eBlue-500 transition">
+                            <option>Publicidad Exterior (Bardas / Espectaculares)</option>
+                            <option>Lonas en Puentes Peatonales</option>
+                            <option>Rotulación de Flotillas</option>
+                            <option>Impresión & Merchandising Corporativo</option>
+                            <option>Uniformes & Merchandising Corporativo</option>
+                            <option>Organización de Eventos Especiales</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-eGold hover:bg-yellow-500 text-slate-950 font-extrabold text-sm py-3 rounded-xl transition shadow-lg">
+                        Enviar Solicitud de Información
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="border-t border-white/10 mt-16 pt-8 text-center text-xs text-slate-500">
+            Enlace Total y Servicios Publicitarios © 2026 · Todos los derechos reservados.
+        </div>
+    </div>
+</section>
+
+<!-- Modal éxito -->
+<div id="success-modal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-8 text-center max-w-sm w-full shadow-2xl">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 text-3xl rounded-2xl flex justify-center items-center mx-auto mb-4">✓</div>
+        <h3 class="text-xl font-bold text-slate-900 mb-2">¡Solicitud Enviada!</h3>
+        <p class="text-sm text-slate-600 mb-6">Hemos recibido tu solicitud de cotización. Un consultor se pondrá en contacto contigo en breve.</p>
+        <button onclick="document.getElementById('success-modal').classList.add('hidden')" class="w-full bg-eBlue-600 hover:bg-eBlue-700 text-white font-bold text-sm py-3 rounded-xl transition">Entendido</button>
+    </div>
+</div>
+
+<script>
+// Scroll fade-in
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.section-fade').forEach(el => observer.observe(el));
+
+// Form
+function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('success-modal').classList.remove('hidden');
+    e.target.reset();
+}
+
+// Image generation via Gemini Imagen
+async function genImg(prompt, spinnerId, imgId, fallbackSelector) {
+    const spinner = document.getElementById(spinnerId);
+    const img = document.getElementById(imgId);
+    const fallback = img?.closest('.img-card')?.querySelector('.fallback-graphic');
+    const apiKey = "";
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=${apiKey}`;
+    let delay = 1000;
+    for (let i = 0; i < 3; i++) {
+        try {
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ instances: [{ prompt }], parameters: { sampleCount: 1 } })
+            });
+            if (!res.ok) throw new Error(res.status);
+            const data = await res.json();
+            if (data.predictions?.[0]?.bytesBase64Encoded) {
+                img.src = `data:image/png;base64,${data.predictions[0].bytesBase64Encoded}`;
+                img.classList.remove('hidden');
+                if (spinner) spinner.style.display = 'none';
+                if (fallback) fallback.classList.add('hidden');
+                return;
+            }
+        } catch (err) {
+            if (i === 2) {
+                if (spinner) spinner.style.display = 'none';
+                if (fallback) fallback.classList.remove('hidden');
+            } else {
+                await new Promise(r => setTimeout(r, delay));
+                delay *= 2;
+            }
+        }
+    }
+}
+
+window.addEventListener('load', () => {
+    genImg("A real professional photo of a Mexican street concrete wall painted bright purple with bold white advertising text and a ribbon symbol, daylight", 'sp-barda', 'img-barda');
+    genImg("A high-quality professional photo of a giant highway billboard on a steel pillar next to a Mexico City highway showing a tequila bottle advertisement under bright blue sky", 'sp-esp', 'img-esp');
+    genImg("A realistic professional photo of a green PEMEX gas station with a digital advertising screen showing prices, clear blue sky, daylight", 'sp-pemex', 'img-pemex');
+    genImg("A realistic professional photo of a large vinyl banner advertising a job fair hanging on a metal pedestrian walkway bridge over a high-traffic avenue in Mexico City, daylight", 'sp-p1', 'img-p1');
+    genImg("A professional photo of a colorful public service announcement banner hanging on the side of a busy city pedestrian overpass bridge, daylight, clear sky", 'sp-p2', 'img-p2');
+    genImg("A professional photograph of a black classic Volkswagen Beetle with vibrant Red Bull graphics cleanly applied to its side body, parked on a city street, daylight", 'sp-v1', 'img-v1');
+    genImg("A professional photo of a white commercial cargo delivery van with custom corporate colorful paint and bold logo on its side, parked in an urban area, daylight", 'sp-v2', 'img-v2');
+    genImg("A professional photo of a white sedan car with clean corporate green and blue vinyl graphics on its side panels, parked on a clean street, daylight", 'sp-v3', 'img-v3');
+    genImg("A professional studio product photograph of corporate brochures and catalogs stacked on a white table, sharp focus, daylight", 'sp-bro', 'img-bro');
+    genImg("A professional mockup photograph of a clean minimalist trifold corporate brochure open on a modern desk, daylight", 'sp-tri', 'img-tri');
+    genImg("A realistic photo of a large printed storefront window advertisement vinyl showing vibrant colorful illustrations, daylight", 'sp-viny', 'img-viny');
+    genImg("A professional photo of a corporate vertical rollup banner stand in a bright minimalist office lobby, clean modern layout", 'sp-roll', 'img-roll');
+    genImg("A professional studio photograph of a black outdoor work vest with white embroidery on the back, flat lay on a clean surface", 'sp-u1', 'img-u1');
+    genImg("A professional close-up flat lay photo of the back of a royal blue pullover sports hoodie with vibrant screen print of golden trophies and bold TRICAMPEONES lettering", 'sp-u2', 'img-u2');
+    genImg("A professional product photograph of a black softshell corporate jacket with detailed embroidery insignia in white and colorful letters", 'sp-u3', 'img-u3');
+    genImg("A professional wide panoramic photo of several Mexican Lucha Libre wrestlers wearing colorful masks posing side-by-side, dramatic sports lighting", 'sp-ev1', 'img-ev1');
+    genImg("A professional photograph of a luxury corporate gala dinner hall with round tables, glowing purple ambient lighting, elegant atmosphere", 'sp-ev2', 'img-ev2');
+    genImg("A professional close-up photo of an elegant floral center arrangement with small warm hanging decorative lightbulbs at an evening gala event", 'sp-ev3', 'img-ev3');
+});
+</script>
+</body>
+</html>
