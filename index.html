@@ -572,60 +572,44 @@ function handleSubmit(e) {
 }
 
 // Image generation via Gemini Imagen
-async function genImg(prompt, spinnerId, imgId, fallbackSelector) {
+function genImg(keywords, spinnerId, imgId) {
     const spinner = document.getElementById(spinnerId);
     const img = document.getElementById(imgId);
+    if (!img) return;
     const fallback = img?.closest('.img-card')?.querySelector('.fallback-graphic');
-    const apiKey = "";
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=${apiKey}`;
-    let delay = 1000;
-    for (let i = 0; i < 3; i++) {
-        try {
-            const res = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ instances: [{ prompt }], parameters: { sampleCount: 1 } })
-            });
-            if (!res.ok) throw new Error(res.status);
-            const data = await res.json();
-            if (data.predictions?.[0]?.bytesBase64Encoded) {
-                img.src = `data:image/png;base64,${data.predictions[0].bytesBase64Encoded}`;
-                img.classList.remove('hidden');
-                if (spinner) spinner.style.display = 'none';
-                if (fallback) fallback.classList.add('hidden');
-                return;
-            }
-        } catch (err) {
-            if (i === 2) {
-                if (spinner) spinner.style.display = 'none';
-                if (fallback) fallback.classList.remove('hidden');
-            } else {
-                await new Promise(r => setTimeout(r, delay));
-                delay *= 2;
-            }
-        }
-    }
+
+    // Fotos reales gratuitas de Unsplash sin API key
+    img.onload = () => {
+        img.classList.remove('hidden');
+        if (spinner) spinner.style.display = 'none';
+        if (fallback) fallback.classList.add('hidden');
+    };
+    img.onerror = () => {
+        if (spinner) spinner.style.display = 'none';
+        if (fallback) fallback.classList.remove('hidden');
+    };
+    img.src = `https://source.unsplash.com/featured/800x600/?${keywords}&sig=${Math.random()}`;
 }
 
 window.addEventListener('load', () => {
-    genImg("A real professional photo of a Mexican street concrete wall painted bright purple with bold white advertising text and a ribbon symbol, daylight", 'sp-barda', 'img-barda');
-    genImg("A high-quality professional photo of a giant highway billboard on a steel pillar next to a Mexico City highway showing a tequila bottle advertisement under bright blue sky", 'sp-esp', 'img-esp');
-    genImg("A realistic professional photo of a green PEMEX gas station with a digital advertising screen showing prices, clear blue sky, daylight", 'sp-pemex', 'img-pemex');
-    genImg("A realistic professional photo of a large vinyl banner advertising a job fair hanging on a metal pedestrian walkway bridge over a high-traffic avenue in Mexico City, daylight", 'sp-p1', 'img-p1');
-    genImg("A professional photo of a colorful public service announcement banner hanging on the side of a busy city pedestrian overpass bridge, daylight, clear sky", 'sp-p2', 'img-p2');
-    genImg("A professional photograph of a black classic Volkswagen Beetle with vibrant Red Bull graphics cleanly applied to its side body, parked on a city street, daylight", 'sp-v1', 'img-v1');
-    genImg("A professional photo of a white commercial cargo delivery van with custom corporate colorful paint and bold logo on its side, parked in an urban area, daylight", 'sp-v2', 'img-v2');
-    genImg("A professional photo of a white sedan car with clean corporate green and blue vinyl graphics on its side panels, parked on a clean street, daylight", 'sp-v3', 'img-v3');
-    genImg("A professional studio product photograph of corporate brochures and catalogs stacked on a white table, sharp focus, daylight", 'sp-bro', 'img-bro');
-    genImg("A professional mockup photograph of a clean minimalist trifold corporate brochure open on a modern desk, daylight", 'sp-tri', 'img-tri');
-    genImg("A realistic photo of a large printed storefront window advertisement vinyl showing vibrant colorful illustrations, daylight", 'sp-viny', 'img-viny');
-    genImg("A professional photo of a corporate vertical rollup banner stand in a bright minimalist office lobby, clean modern layout", 'sp-roll', 'img-roll');
-    genImg("A professional studio photograph of a black outdoor work vest with white embroidery on the back, flat lay on a clean surface", 'sp-u1', 'img-u1');
-    genImg("A professional close-up flat lay photo of the back of a royal blue pullover sports hoodie with vibrant screen print of golden trophies and bold TRICAMPEONES lettering", 'sp-u2', 'img-u2');
-    genImg("A professional product photograph of a black softshell corporate jacket with detailed embroidery insignia in white and colorful letters", 'sp-u3', 'img-u3');
-    genImg("A professional wide panoramic photo of several Mexican Lucha Libre wrestlers wearing colorful masks posing side-by-side, dramatic sports lighting", 'sp-ev1', 'img-ev1');
-    genImg("A professional photograph of a luxury corporate gala dinner hall with round tables, glowing purple ambient lighting, elegant atmosphere", 'sp-ev2', 'img-ev2');
-    genImg("A professional close-up photo of an elegant floral center arrangement with small warm hanging decorative lightbulbs at an evening gala event", 'sp-ev3', 'img-ev3');
+    genImg('outdoor,wall,mural,advertising,mexico,street', 'sp-barda', 'img-barda');
+    genImg('highway,billboard,advertising,outdoor,city,sky', 'sp-esp', 'img-esp');
+    genImg('gas,station,digital,screen,display,night', 'sp-pemex', 'img-pemex');
+    genImg('pedestrian,bridge,banner,outdoor,advertising,city', 'sp-p1', 'img-p1');
+    genImg('bridge,banner,city,outdoor,advertising,street', 'sp-p2', 'img-p2');
+    genImg('car,vehicle,wrap,graphics,advertising,street', 'sp-v1', 'img-v1');
+    genImg('van,cargo,vehicle,corporate,branding,wrap', 'sp-v2', 'img-v2');
+    genImg('sedan,car,corporate,vinyl,branding,clean', 'sp-v3', 'img-v3');
+    genImg('corporate,brochures,catalogs,printing,stack,desk', 'sp-bro', 'img-bro');
+    genImg('trifold,brochure,corporate,design,open,desk', 'sp-tri', 'img-tri');
+    genImg('storefront,vinyl,window,advertising,colorful', 'sp-viny', 'img-viny');
+    genImg('rollup,banner,stand,office,lobby,display', 'sp-roll', 'img-roll');
+    genImg('work,vest,uniform,embroidery,corporate,black', 'sp-u1', 'img-u1');
+    genImg('hoodie,sports,uniform,blue,print,athletic', 'sp-u2', 'img-u2');
+    genImg('corporate,jacket,uniform,embroidery,professional', 'sp-u3', 'img-u3');
+    genImg('wrestling,fighters,masks,sports,event,arena', 'sp-ev1', 'img-ev1');
+    genImg('gala,dinner,hall,purple,lighting,luxury,event', 'sp-ev2', 'img-ev2');
+    genImg('floral,arrangement,decoration,lights,elegant,event', 'sp-ev3', 'img-ev3');
 });
 </script>
 </body>
