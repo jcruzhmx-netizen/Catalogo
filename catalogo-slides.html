@@ -1101,32 +1101,52 @@
             imgEl.src = url;
         }
 
+        // Helper to load static image directly
+        function loadStaticImage(url, elementId) {
+            const container = document.getElementById(elementId);
+            if (!container) return;
+            const spinner = container.querySelector('.loading-spinner');
+            const imgEl = container.querySelector('img');
+            const fallbackEl = container.querySelector('.fallback-graphic');
+            if (!imgEl) return;
+            imgEl.onload = () => {
+                imgEl.classList.remove('hidden');
+                if (spinner) spinner.classList.add('hidden');
+                if (fallbackEl) fallbackEl.classList.add('hidden');
+            };
+            imgEl.onerror = () => {
+                if (spinner) spinner.classList.add('hidden');
+                if (fallbackEl) fallbackEl.classList.remove('hidden');
+            };
+            imgEl.src = url;
+        }
+
         window.addEventListener('load', () => {
-            // Página 3 — Exteriores
+            // Página 3 — Exteriores (DOCX pág 4: Pantallas en Gasolineras)
             generateCatalogImage('outdoor,wall,mural,advertising,mexico,street', 'barda-img-container');
             generateCatalogImage('highway,billboard,advertising,outdoor,city', 'espectacular-img-container');
-            generateCatalogImage('gas,station,digital,screen,display,night', 'pemex-img-container');
+            loadStaticImage('https://jcruzhmx-netizen.github.io/Catalogo/img/s3_pemex.jpg', 'pemex-img-container');
 
-            // Página 4 — Puentes
-            generateCatalogImage('pedestrian,bridge,banner,outdoor,advertising', 'puente-1-container');
-            generateCatalogImage('bridge,banner,city,outdoor,advertising,street', 'puente-2-container');
+            // Página 4 — Puentes (DOCX pág 7: Lonas en Puentes)
+            loadStaticImage('https://jcruzhmx-netizen.github.io/Catalogo/img/s4_lona1.jpg', 'puente-1-container');
+            loadStaticImage('https://jcruzhmx-netizen.github.io/Catalogo/img/s4_lona2.jpg', 'puente-2-container');
 
-            // Página 5 — Flotillas
-            generateCatalogImage('car,vehicle,wrap,graphics,advertising,street', 'vehicle-1-container');
-            generateCatalogImage('van,cargo,vehicle,corporate,branding,wrap', 'vehicle-2-container');
-            generateCatalogImage('sedan,car,corporate,vinyl,branding,clean', 'vehicle-3-container');
+            // Página 5 — Flotillas (DOCX pág 7: Rotulación de Vehículos)
+            loadStaticImage('https://jcruzhmx-netizen.github.io/Catalogo/img/s5_vehicle1.jpg', 'vehicle-1-container');
+            loadStaticImage('https://jcruzhmx-netizen.github.io/Catalogo/img/s5_vehicle2.jpg', 'vehicle-2-container');
+            loadStaticImage('https://jcruzhmx-netizen.github.io/Catalogo/img/s5_vehicle3.jpg', 'vehicle-3-container');
 
-            // Página 6 — Impresos
-            generateCatalogImage('corporate,brochures,catalogs,printing,stack,desk', 'impresos-brochure-container');
-            generateCatalogImage('trifold,brochure,corporate,design,open,desk', 'impresos-trifold-container');
-            generateCatalogImage('storefront,vinyl,window,advertising,colorful', 'impresos-vinyl-container');
+            // Página 6 — Impresos (DOCX pág 10)
+            loadStaticImage('https://jcruzhmx-netizen.github.io/Catalogo/img/s6_uniformes_full.jpg', 'impresos-brochure-container');
+            loadStaticImage('https://jcruzhmx-netizen.github.io/Catalogo/img/s7_uniforme1.jpg', 'impresos-trifold-container');
+            loadStaticImage('https://jcruzhmx-netizen.github.io/Catalogo/img/s7_uniforme2.jpg', 'impresos-vinyl-container');
             generateCatalogImage('large,format,printing,plotter,print,shop', 'impresos-plotter-container');
             generateCatalogImage('rollup,banner,stand,office,lobby,display', 'impresos-rollup-container');
 
-            // Página 7 — Uniformes
-            generateCatalogImage('work,vest,uniform,embroidery,corporate,black', 'uniform-1-container');
-            generateCatalogImage('hoodie,sports,uniform,blue,print,athletic', 'uniform-2-container');
-            generateCatalogImage('corporate,jacket,uniform,embroidery,professional', 'uniform-3-container');
+            // Página 7 — Uniformes (DOCX pág 7)
+            loadStaticImage('https://jcruzhmx-netizen.github.io/Catalogo/img/s4_lona1.jpg', 'uniform-1-container');
+            loadStaticImage('https://jcruzhmx-netizen.github.io/Catalogo/img/s5_vehicle1.jpg', 'uniform-2-container');
+            loadStaticImage('https://jcruzhmx-netizen.github.io/Catalogo/img/s5_vehicle2.jpg', 'uniform-3-container');
 
             // Página 8 — Eventos
             generateCatalogImage('wrestling,fighters,masks,sports,event,arena', 'event-banner-container');
